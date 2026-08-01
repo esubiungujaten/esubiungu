@@ -279,7 +279,7 @@
         <div class="form-group">
           <label>Pilih Ukuran Cup</label>
           <div class="size-grid">
-            <div id="btnMedium" class="btn-size active" onclick="selectSize('Medium', 10000)">Medium (10k)</div>
+            <div id="btnMedium" class="btn-size active" onclick="selectSize('Medium', 5000)">Medium (10k)</div>
             <div id="btnLarge" class="btn-size" onclick="selectSize('Large', 12000)">Large (12k)</div>
           </div>
         </div>
@@ -289,7 +289,7 @@
           <label>Ekstra Topping (+Rp 3.000)</label>
           <div class="checkbox-group">
             <label><input type="checkbox" id="topKeju" onchange="calculateTotal()"> Extra Keju</label>
-            <label><input type="checkbox" id="topBoba" onchange="calculateTotal()"> Extra Boba</label>
+            <label><input type="checkbox" id="topBoba" onchange="calculateTotal()"> Extra Oreo</label>
           </div>
         </div>
 
@@ -307,7 +307,7 @@
         <div class="footer-checkout">
           <div>
             <div class="price-title">Total Estimasi</div>
-            <div id="totalPrice" class="price-value">Rp 15.000</div>
+            <div id="totalPrice" class="price-value">Rp 5.000</div>
           </div>
           <button type="button" class="btn-wa" onclick="sendToWhatsApp()">Pesan via WA</button>
         </div>
