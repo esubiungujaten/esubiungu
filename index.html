@@ -58,19 +58,20 @@
       margin-bottom: 20px;
       text-align: center;
     }
+        /* Perbaikan Banner Agar Gambar Utuh (Tidak Terpotong) */
     .single-banner {
       position: relative;
       border-radius: 12px;
       overflow: hidden;
-      aspect-ratio: 16 / 9; /* Menjaga rasio tampilan gambar tetap pas */
       margin-top: 10px;
       background-color: #f3e8ff;
+      width: 100%;
     }
     .single-banner img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
+      height: auto; /* Membiarkan tinggi gambar menyesuaikan proporsi aslinya */
+      display: block;
+      object-fit: contain; /* Memastikan gambar tidak terpotong */
     }
     .single-banner:hover img {
       transform: scale(1.03);
