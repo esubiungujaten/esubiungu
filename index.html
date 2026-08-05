@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Es Umbi Ungu - Pesan Online</title>
+  <title>Es Spesial Creamy - Pesan Online</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -49,7 +49,7 @@
       margin: -20px auto 0;
       padding: 0 15px;
     }
-        /* Banner Single Image */
+    /* Banner Single Image */
     .product-gallery {
       background: white;
       border-radius: 20px;
@@ -58,7 +58,6 @@
       margin-bottom: 20px;
       text-align: center;
     }
-        /* Perbaikan Banner Agar Gambar Utuh (Tidak Terpotong) */
     .single-banner {
       position: relative;
       border-radius: 12px;
@@ -69,24 +68,25 @@
     }
     .single-banner img {
       width: 100%;
-      height: auto; /* Membiarkan tinggi gambar menyesuaikan proporsi aslinya */
+      height: auto;
       display: block;
-      object-fit: contain; /* Memastikan gambar tidak terpotong */
+      object-fit: contain;
+      transition: transform 0.3s ease;
     }
     .single-banner:hover img {
-      transform: scale(1.03);
+      transform: scale(1.02);
     }
     .gallery-tag {
       position: absolute;
       bottom: 10px;
       left: 10px;
-      background: rgba(76, 29, 149, 0.85);
+      background: rgba(76, 29, 149, 0.9);
       color: white;
       font-size: 11px;
       padding: 4px 10px;
       border-radius: 8px;
       font-weight: 600;
-      }
+    }
     
     .card {
       background: white;
@@ -115,15 +115,16 @@
       color: #4b5563;
       margin-bottom: 6px;
     }
-    .input-text {
+    .input-text, .input-select {
       width: 100%;
       padding: 10px 14px;
       border: 1px solid #d1d5db;
       border-radius: 10px;
       font-size: 14px;
       outline: none;
+      background: #fff;
     }
-    .input-text:focus {
+    .input-text:focus, .input-select:focus {
       border-color: #7c3aed;
     }
     .size-grid {
@@ -152,6 +153,10 @@
       flex-wrap: wrap;
       gap: 12px 15px;
       font-size: 13px;
+    }
+    .checkbox-group label.disabled-label {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
     .qty-control {
       display: flex;
@@ -292,32 +297,43 @@
 
   <!-- Header -->
   <div class="header">
-    <span class="badge">✨ Ice Taro Sweet Creamy 🍠</span>
-    <h1>Es Umbi Ungu</h1>
-    <p>Sensasi manis alami ubi ungu asli, krim susu lembut, dan limpahan keju parut gurih!</p>
+    <span class="badge">✨ Minuman Segar & Creamy 🥤✨</span>
+    <h1>Es Spesial Creamy</h1>
+    <p>Bahan Pilihan Berkualitas. Warna Alami, Rasa Istimewa, Bikin Nagih!</p>
   </div>
 
   <div class="container">
-        <!-- Banner 1 Foto Produk -->
+    <!-- Banner Menu Gambar Utama -->
     <div class="product-gallery">
-      <h3 style="font-size: 15px; color: #4c1d95; font-weight: 700;">📸 Tampilan Segar Es Umbi Ungu</h3>
+      <h3 style="font-size: 15px; color: #4c1d95; font-weight: 700;">📸 Menu Spesial Creamy</h3>
       <div class="single-banner">
-        <!-- Ganti 'produk-1.jpg' dengan nama file foto kamu di GitHub -->
-        <img src="file_0000000041a0820ba7a0ff4fc43943bb.png" alt="Es Umbi Ungu" onerror="this.src='https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=600&auto=format&fit=crop'">
-        <span class="gallery-tag">100% Ubi Ungu Asli & Melimpah Kejunya! 🧀✨</span>
+        <img src="image1.img" alt="Menu Es Spesial Creamy" onerror="this.src='https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=600&auto=format&fit=crop'">
+        <span class="gallery-tag">Pilih Favoritmu, Nikmati Kesegarannya! 🎉</span>
       </div>
     </div>
     
     <!-- Card Utama Form Pemesanan -->
     <div class="card">
-      <div class="badge-sub">✨ Ubi Ungu Asli ✨</div>
+      <div class="badge-sub">✨ Mulai 5k - 8k ✨</div>
       <h2 style="font-size: 20px; color: #3b0764; margin-bottom: 15px;">Form Pemesanan</h2>
 
       <form id="orderForm">
         <!-- Nama -->
         <div class="form-group">
           <label for="buyerName">Nama Pemesan</label>
-          <input type="text" id="buyerName" class="input-text" placeholder="Contoh: alif">
+          <input type="text" id="buyerName" class="input-text" placeholder="Contoh: Alif">
+        </div>
+
+        <!-- Pilih Varian Rasa Minuman -->
+        <div class="form-group">
+          <label for="menuVariant">Pilih Varian Minuman</label>
+          <select id="menuVariant" class="input-select" onchange="handleVariantChange()">
+            <option value="Es Ubi Ungu">Es Ubi Ungu</option>
+            <option value="Es Coklat Creamy">Es Coklat Creamy</option>
+            <option value="Es Labu Creamy">Es Labu Creamy</option>
+            <option value="Es Kocok Buah Naga">Es Kocok Buah Naga</option>
+            <option value="Nescafe Creamy (Tanpa Topping)">Nescafe Creamy (Tanpa Topping)</option>
+          </select>
         </div>
 
         <!-- Ukuran -->
@@ -331,11 +347,11 @@
 
         <!-- Extra Topping -->
         <div class="form-group">
-          <label>Ekstra Topping (+Rp 3.000)</label>
+          <label id="toppingTitle">Ekstra Topping (+Rp 3.000)</label>
           <div class="checkbox-group">
-            <label><input type="checkbox" id="topKeju" onchange="calculateTotal()"> Extra Keju</label>
-            <label><input type="checkbox" id="topOreo" onchange="calculateTotal()"> Extra Oreo</label>
-            <label><input type="checkbox" id="topCoklat" onchange="calculateTotal()"> Extra Coklat</label>
+            <label id="lblKeju"><input type="checkbox" id="topKeju" onchange="calculateTotal()"> Extra Keju</label>
+            <label id="lblOreo"><input type="checkbox" id="topOreo" onchange="calculateTotal()"> Extra Oreo</label>
+            <label id="lblCoklat"><input type="checkbox" id="topCoklat" onchange="calculateTotal()"> Extra Coklat</label>
           </div>
         </div>
 
@@ -362,19 +378,19 @@
 
     <!-- Card Lokasi Outlet -->
     <div class="location-card">
-      <h3>📍 Kedai Es Umbi Ungu</h3>
+      <h3>📍 Kedai Es Spesial Creamy</h3>
       <p>Jl. Tengger, Josroyo Indah, Jaten, Karanganyar, Jawa Tengah 57771</p>
       
       <div class="hours">⏰ Buka Setiap Hari: 10.00 - 20.00 WIB</div>
       
-      <!-- Tombol Langsung ke Google Maps -->
-      <a href="https://maps.app.goo.gl/8kNsVdEefH9Bhopy9?g_st=ac" target="_blank" class="btn-map">
+      <!-- Tombol Google Maps -->
+      <a href="https://maps.app.goo.gl/dmF8s8iFhrB8PNDCA" target="_blank" class="btn-map">
         🗺️ Petunjuk Arah / Buka di Google Maps
       </a>
     </div>
 
     <footer>
-      © 2026 Es Umbi Ungu. Freshly Made Everyday.
+      © 2026 Es Spesial Creamy. Freshly Made Everyday.
     </footer>
   </div>
 
@@ -416,6 +432,42 @@
       calculateTotal();
     }
 
+    function handleVariantChange() {
+      const variant = document.getElementById('menuVariant').value;
+      const isNescafe = variant.includes("Nescafe Creamy");
+
+      const topKeju = document.getElementById('topKeju');
+      const topOreo = document.getElementById('topOreo');
+      const topCoklat = document.getElementById('topCoklat');
+
+      if (isNescafe) {
+        // Uncheck dan disable topping untuk Nescafe Creamy
+        topKeju.checked = false;
+        topOreo.checked = false;
+        topCoklat.checked = false;
+
+        topKeju.disabled = true;
+        topOreo.disabled = true;
+        topCoklat.disabled = true;
+
+        document.getElementById('lblKeju').classList.add('disabled-label');
+        document.getElementById('lblOreo').classList.add('disabled-label');
+        document.getElementById('lblCoklat').classList.add('disabled-label');
+        document.getElementById('toppingTitle').innerText = "Ekstra Topping (Tidak tersedia untuk Nescafe Creamy)";
+      } else {
+        topKeju.disabled = false;
+        topOreo.disabled = false;
+        topCoklat.disabled = false;
+
+        document.getElementById('lblKeju').classList.remove('disabled-label');
+        document.getElementById('lblOreo').classList.remove('disabled-label');
+        document.getElementById('lblCoklat').classList.remove('disabled-label');
+        document.getElementById('toppingTitle').innerText = "Ekstra Topping (+Rp 3.000)";
+      }
+
+      calculateTotal();
+    }
+
     function calculateTotal() {
       let extra = 0;
       if (document.getElementById('topKeju').checked) extra += 3000;
@@ -427,13 +479,13 @@
       return total;
     }
 
-    // Fungsi Menampilkan Modal Custom
+    // Menampilkan Modal Custom
     function showAlert(msg) {
       document.getElementById('modalMessage').innerText = msg;
       document.getElementById('customModal').style.display = 'flex';
     }
 
-    // Fungsi Menutup Modal Custom
+    // Menutup Modal Custom
     function closeModal() {
       document.getElementById('customModal').style.display = 'none';
     }
@@ -445,6 +497,8 @@
         return;
       }
 
+      const variant = document.getElementById('menuVariant').value;
+
       let toppings = [];
       if (document.getElementById('topKeju').checked) toppings.push("Extra Keju");
       if (document.getElementById('topOreo').checked) toppings.push("Extra Oreo");
@@ -453,8 +507,9 @@
       const toppingStr = toppings.length > 0 ? toppings.join(", ") : "Tanpa Topping Tambahan";
       const total = calculateTotal();
 
-      const message = `Halo, saya mau pesan Es Umbi Ungu!%0A%0A` +
+      const message = `Halo, saya mau pesan minuman!%0A%0A` +
                       ` *Nama:* ${encodeURIComponent(name)}%0A` +
+                      ` *Menu:* ${variant}%0A` +
                       ` *Ukuran:* ${selectedSize}%0A` +
                       ` *Topping:* ${toppingStr}%0A` +
                       ` *Jumlah:* ${qty} cup%0A` +
